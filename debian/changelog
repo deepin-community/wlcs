@@ -1,0 +1,185 @@
+wlcs (1.3.0-4) unstable; urgency=medium
+
+  [ Marius Gripsgard ]
+  * debian/rules:
+    + Fix FTBFS on armel and powerpc due to missing atomic linkage.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Fri, 12 Nov 2021 10:16:44 +0100
+
+wlcs (1.3.0-3) unstable; urgency=medium
+
+  [ Marius Gripsgard ]
+  * debian/patches:
+    + Add 0001-cmake-always-set-GTEST_LIBRARY-if-it-isn-t.patch and
+      0002-Fix-build-when-using-GTest-1.11.patch. Fix FTBFS (cmake:
+      always set GTEST_LIBRARY if it isn't; fix build when using GTest-1.11).
+      (Closes: #998894).
+
+  [ Debian Janitor ]
+  * debian/upstream/metadata:
+    + Set upstream metadata fields: Repository.
+    + Remove obsolete field Name from debian/upstream/metadata
+      (already present in machine-readable debian/copyright).
+
+  [ Mike Gabriel ]
+  * debian/copyright:
+    + Update copyright attributions.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Wed, 10 Nov 2021 17:03:08 +0100
+
+wlcs (1.3.0-2) unstable; urgency=medium
+
+  * Upload to unstable as is.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Mon, 13 Sep 2021 21:47:46 +0200
+
+wlcs (1.3.0-1) experimental; urgency=medium
+
+  * New upstream release. Notable changes:
+    + Check Cursor movement is not propagating to clients correctly
+      when zwp_relative_pointer_manager_v1 is enabled
+    + Test that correct input event is used for interactive move
+    + Test that layer surfaces are correctly reconfigured
+    + Add tests for popup done event
+    + Test surfaces get enter/leave events
+    + Test version 2 and 3 features of zwlr_layer_shell_v1
+  * debian/copyright:
+    + Refresh for new upstream
+
+ -- Christopher James Halse Rogers <raof@ubuntu.com>  Thu, 17 Jun 2021 09:38:35 +1000
+
+wlcs (1.2.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/upstream/signing-key.asc:
+    + Update pubkey 0xF4A0E7F950F362FA5B719C48D4DB4A9F5D044F1A (RAOF).
+  * debian/{watch,rules,copyright}:
+    + Don't repack orig tarball anymore. Non-DFSG files have been removed
+      from the upstream project.
+  * debian/control:
+    + Bump Standards-Version: to 4.5.1. No changes needed.
+  * debian/copyright:
+    + Update copyright attributions.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Fri, 26 Feb 2021 22:03:29 +0100
+
+wlcs (1.2.0+dfsg-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/upstream/signing-key.asc:
+    + Update upstream maintainer's GPG pubkey.
+  * debian/patches:
+    + Drop fix-cmake-version.patch. Resolved upstream.
+  * debian/copyright:
+    + Update auto-generated copyright.in file.
+    + Update copyright attributions.
+  * debian/control:
+    + Bump to DH compat level version 13.
+  * debian/control:
+    + Bump Standards-Version:to 4.5.0. No changes needed.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Fri, 30 Oct 2020 23:42:19 +0100
+
+wlcs (1.1.0+dfsg-7) unstable; urgency=medium
+
+  * debian/rules:
+    + Set -DWLCS_BUILD_ASAN=OFF for two more architectures (m68k, sh4).
+
+ -- Mike Gabriel <sunweaver@debian.org>  Tue, 08 Sep 2020 19:00:25 +0200
+
+wlcs (1.1.0+dfsg-6) unstable; urgency=medium
+
+  * debian/control:
+    + Add B-D: libffi-dev.
+  * debian/rules:
+    + Set -DWLCS_BUILD_ASAN=OFF for several more architectures (s390x, alpha,
+      hppa, ia64, riscv64 and sparc64).
+
+ -- Mike Gabriel <sunweaver@debian.org>  Tue, 08 Sep 2020 17:17:51 +0200
+
+wlcs (1.1.0+dfsg-5) unstable; urgency=medium
+
+  * debian/control:
+    + Fix plural form of suite in SYNOPSIS. (Closes: #962015).
+  * debian/rules:
+    + Set WLCS_BUILD_ASAN to OFF on mipsel and mips64el architectures.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Tue, 14 Jul 2020 00:45:24 +0200
+
+wlcs (1.1.0+dfsg-4) unstable; urgency=medium
+
+  * debian/rules:
+    + Drop old comments.
+    + Fix varialble name WITH_UBSAN.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Mon, 17 Feb 2020 22:53:56 +0100
+
+wlcs (1.1.0+dfsg-3) unstable; urgency=medium
+
+  * debian/control:
+    + Limit building to linux-any architectures.
+  * debian/rules:
+    + Disable UBSAN and TSAN sanitizers on architectures that don't support
+      them.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Mon, 17 Feb 2020 20:47:38 +0100
+
+wlcs (1.1.0+dfsg-2) unstable; urgency=medium
+
+  * Source-only upload as-is.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Sun, 02 Feb 2020 07:37:17 +0100
+
+wlcs (1.1.0+dfsg-1) unstable; urgency=medium
+
+  [ Christopher James Halse Rogers ]
+  * Prepare initial version wlcs src:pkg for Ubuntu.
+
+  [ Mike Gabriel ]
+  * Repack upstream version 1.1.0 -> 1.1.0+dfsg. The upstream
+    sources contain an encrypted file.
+  * debian/control:
+    + Update Maintainer: and Uploaders: fields.
+    + Add Rules-Requires-Root: field and set it to 'no'.
+    + Cosmetic update of D field, list deps line-by-line.
+    + In Vcs-Git: field, drop branch attribute (we are on master branch now).
+    + Bump Standards-Version: to 4.4.1. No changes needed.
+    + In src:pkg definitions, move Section: field further up.
+    + Drop Section: field from bin:pkg wlcs.
+  * debian/copyright:
+    + Re-work entirely. Lists files individually for better license and
+      copyright tracking.
+  * debian/upstream/signing-key.asc:
+    + Reduce key size, make key minimal.
+  * debian/upstream/metadata:
+    + Add file for being DEP-12 compliant.
+  * debian/gbp.conf:
+    + Update for new branch layout on salsa.
+  * debian/watch:
+    + Re-packing the orig tarball is required to drop encrypted file from
+      upstream sources; add dversionmangle and repacksuffix options.
+  * debian/rules:
+    + Add get-orig-source target with cmdline options for repacking the orig
+      tarball.
+  * Initial upload to Debian. (Closes: #949474).
+
+ -- Mike Gabriel <sunweaver@debian.org>  Tue, 21 Jan 2020 14:01:19 +0100
+
+wlcs (1.1.0-0ubuntu2) UNRELEASED; urgency=medium
+
+  * debian/rules:
+  * debian/patches/fix-pkg-config-with-absolute-libexec-configured.patch:
+    + Drop, instead passing a relative CMAKE_INSTALL_LIBEXECDIR
+
+ -- Christopher James Halse Rogers <raof@ubuntu.com>  Thu, 22 Aug 2019 16:30:49 +1000
+
+wlcs (1.1.0-0ubuntu1) eoan; urgency=medium
+
+  * Initial upload to Ubuntu
+  * debian/patches/fix-cmake-version.patch:
+    + Cherry pick fix for project version. This is 1.1.0, not 1.0.0!
+  * debian/patches/fix-pkg-config-with-absolute-libexec-configured.patch:
+    + Fix duplicate ${prefix} in wlcs.pc when manually specifying
+      CMAKE_INSTALL_LIBEXECDIR
+
+ -- Christopher James Halse Rogers <raof@ubuntu.com>  Wed, 21 Aug 2019 12:08:38 +1000

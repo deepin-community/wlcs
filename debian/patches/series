@@ -1,0 +1,2 @@
+0001-cmake-always-set-GTEST_LIBRARY-if-it-isn-t.patch
+0002-Fix-build-when-using-GTest-1.11.patch
