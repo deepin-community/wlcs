@@ -1,3 +1,9 @@
+wlcs (1.3.0-4deepin0) unstable; urgency=medium
+
+  * No source change upload against GCC 12.
+
+ -- Tianyu Chen <sweetyfish@deepin.org>  Fri, 20 Sep 2024 12:57:58 +0800
+
 wlcs (1.3.0-4) unstable; urgency=medium
 
   [ Marius Gripsgard ]
